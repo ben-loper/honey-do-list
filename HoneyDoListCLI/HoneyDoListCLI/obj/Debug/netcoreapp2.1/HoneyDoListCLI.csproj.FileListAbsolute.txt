@@ -1,0 +1,11 @@
+C:\workspace\Side Projects\honey-do-list\HoneyDoListCLI\HoneyDoListCLI\bin\Debug\netcoreapp2.1\HoneyDoListCLI.deps.json
+C:\workspace\Side Projects\honey-do-list\HoneyDoListCLI\HoneyDoListCLI\bin\Debug\netcoreapp2.1\HoneyDoListCLI.runtimeconfig.json
+C:\workspace\Side Projects\honey-do-list\HoneyDoListCLI\HoneyDoListCLI\bin\Debug\netcoreapp2.1\HoneyDoListCLI.runtimeconfig.dev.json
+C:\workspace\Side Projects\honey-do-list\HoneyDoListCLI\HoneyDoListCLI\bin\Debug\netcoreapp2.1\HoneyDoListCLI.dll
+C:\workspace\Side Projects\honey-do-list\HoneyDoListCLI\HoneyDoListCLI\bin\Debug\netcoreapp2.1\HoneyDoListCLI.pdb
+C:\workspace\Side Projects\honey-do-list\HoneyDoListCLI\HoneyDoListCLI\obj\Debug\netcoreapp2.1\HoneyDoListCLI.csprojAssemblyReference.cache
+C:\workspace\Side Projects\honey-do-list\HoneyDoListCLI\HoneyDoListCLI\obj\Debug\netcoreapp2.1\HoneyDoListCLI.csproj.CoreCompileInputs.cache
+C:\workspace\Side Projects\honey-do-list\HoneyDoListCLI\HoneyDoListCLI\obj\Debug\netcoreapp2.1\HoneyDoListCLI.AssemblyInfoInputs.cache
+C:\workspace\Side Projects\honey-do-list\HoneyDoListCLI\HoneyDoListCLI\obj\Debug\netcoreapp2.1\HoneyDoListCLI.AssemblyInfo.cs
+C:\workspace\Side Projects\honey-do-list\HoneyDoListCLI\HoneyDoListCLI\obj\Debug\netcoreapp2.1\HoneyDoListCLI.dll
+C:\workspace\Side Projects\honey-do-list\HoneyDoListCLI\HoneyDoListCLI\obj\Debug\netcoreapp2.1\HoneyDoListCLI.pdb
