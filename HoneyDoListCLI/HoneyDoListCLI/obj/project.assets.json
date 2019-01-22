@@ -694,11 +694,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\workspace\\Side Projects\\honey-do-list\\honey-do-list-CLI\\HoneyDoListCLI\\HoneyDoListCLI\\HoneyDoListCLI.csproj",
+      "projectUniqueName": "C:\\workspace\\Side Projects\\honey-do-list\\HoneyDoListCLI\\HoneyDoListCLI\\HoneyDoListCLI.csproj",
       "projectName": "HoneyDoListCLI",
-      "projectPath": "C:\\workspace\\Side Projects\\honey-do-list\\honey-do-list-CLI\\HoneyDoListCLI\\HoneyDoListCLI\\HoneyDoListCLI.csproj",
+      "projectPath": "C:\\workspace\\Side Projects\\honey-do-list\\HoneyDoListCLI\\HoneyDoListCLI\\HoneyDoListCLI.csproj",
       "packagesPath": "C:\\Users\\bloper\\.nuget\\packages\\",
-      "outputPath": "C:\\workspace\\Side Projects\\honey-do-list\\honey-do-list-CLI\\HoneyDoListCLI\\HoneyDoListCLI\\obj\\",
+      "outputPath": "C:\\workspace\\Side Projects\\honey-do-list\\HoneyDoListCLI\\HoneyDoListCLI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
