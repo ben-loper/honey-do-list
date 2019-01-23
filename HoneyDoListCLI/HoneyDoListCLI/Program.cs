@@ -41,7 +41,7 @@ namespace HoneyDoListCLI
             List<string> finishedProjects = new List<string>();
             finishedProjects.Add("Change light fixtures in the kitchen");
             finishedProjects.Add("Replace hose bib for the backyard");
-            finishedProjects.Add("Unpack moving boxes");
+            finishedProjects.Add("Unpack moving boxe");
 
             while (isRunning)
             {
