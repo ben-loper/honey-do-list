@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using HoneyDoListCLI.Classes;
 
 namespace HoneyDoListCLI
 {
@@ -7,120 +8,36 @@ namespace HoneyDoListCLI
     {
         public static void Main(string[] args)
         {
-            ToMainScreen();
-        }
+            Project electrical = new Project("Electrical", "Replace the lights in the kitchen and recepticals", false);
+            Project hoseBib = new Project("Hose Bib", "Replace backyard hose bib", true);
+            Project replaceCarpet = new Project("Carpets", "Replace all the carpet in each room", false);
+            Project replaceCeilingFan = new Project("Ceiling Fan", "Replace the ceiling fan in enterance with a chandelier", false);
+            Project fixSlidingGlassDoor = new Project("Sliding Glass Door", "Replace the wheels on the sliding glass door and repair the tracks", true);
 
-        public static void PrintBanner()
-        {
-            Console.Clear();
-            Console.WriteLine("---------------------");
-            Console.WriteLine("- The Honey Do List -");
-            Console.WriteLine("---------------------\n");
+            ProjectList listOfProjects = new ProjectList();
 
-        }
+            listOfProjects.addProject(electrical);
+            listOfProjects.addProject(hoseBib);
+            listOfProjects.addProject(replaceCarpet);
+            listOfProjects.addProject(replaceCeilingFan);
+            listOfProjects.addProject(fixSlidingGlassDoor);
 
-        public static void PrintOptions()
-        {
-            Console.WriteLine("A - Future Projects");
-            Console.WriteLine("B - Finished Projects");
-            Console.WriteLine("Q - Quit");
-            Console.Write("\nPlease enter your selection: ");
-        }
-
-        public static void ToMainScreen()
-        {
-            bool isRunning = true;
-
-            PrintBanner();
-            PrintOptions();
-
-            List<string> futureProjects = new List<string>();
-            futureProjects.Add("Replace electrical recepticals");
-            futureProjects.Add("Sand then paint metal pieces for windows and garage door");
-
-            List<string> finishedProjects = new List<string>();
-            finishedProjects.Add("Change light fixtures in the kitchen");
-            finishedProjects.Add("Replace hose bib for the backyard");
-            finishedProjects.Add("Unpack moving boxe");
-
-            while (isRunning)
+            foreach(Project item in listOfProjects.addedProjects)
             {
-                String decision = Console.ReadLine();
-
-                if (decision.ToLower() == "a")
+                string finished = "No";
+                if(item.IsCompleted == true)
                 {
-                    PrintBanner();
-                    Console.WriteLine("Future Projects: ");
-
-                    if (futureProjects.Count == 0)
-                    {
-                        Console.WriteLine("No future projects planned! Get planning!");
-                        Console.WriteLine();
-                    }
-                    else
-                    {
-                        for (int i = 0; i < futureProjects.Count; i++)
-                        {
-                            Console.WriteLine($"{i + 1}: {futureProjects[i]}");
-                        }
-                        Console.WriteLine();
-                    }
-
-                    Console.WriteLine("R - Return to Main Screen");
-                    Console.WriteLine("Q - Quit\n");
-                    Console.Write("Please enter a command: ");
-
-                    decision = Console.ReadLine();
-
-                    if (decision.ToLower() == "r")
-                    {
-                        ToMainScreen();
-                    }
-                    else if(decision.ToLower() == "q")
-                    {
-                        isRunning = false;
-                        break;
-                    }
-
-
+                    finished = "Yes";
                 }
-                else if (decision.ToLower() == "b")
-                {
-                    PrintBanner();
 
-                    if (finishedProjects.Count == 0)
-                    {
-                        Console.WriteLine("Finished Projects: ");
-                        Console.WriteLine("No finished projects :(");
-                    }
-                    else
-                    {
-                        Console.WriteLine("Finished Projects: ");
-                        for (int i = 0; i < finishedProjects.Count; i++)
-                        {
-                            Console.WriteLine($"{i + 1}: {finishedProjects[i]}");
-                        }
-                    }
-
-                    Console.WriteLine("R - Return to Main Screen");
-                    Console.WriteLine("Q - Quit\n");
-                    Console.Write("Please enter a command: ");
-
-                    decision = Console.ReadLine();
-
-                    if (decision.ToLower() == "r")
-                    {
-                        ToMainScreen();
-                    } else if(decision.ToLower() == "q")
-                    {
-                        isRunning = false;
-                        break;
-                    }
-                } else if(decision.ToLower() == "q")
-                {
-                    isRunning = false;
-                }
+                Console.WriteLine($"Project Title: {item.ProjectTitle}\n");
+                Console.WriteLine($"Project Description: {item.ProjectDescription}\n");
+                Console.WriteLine($"Project finished: {finished}\n");
+                Console.WriteLine("***********************************\n");
             }
+
+            Console.ReadKey();
         }
+
     }
 }
