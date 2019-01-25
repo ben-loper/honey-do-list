@@ -1,0 +1,5 @@
+Electrical|Replace the lights in the kitchen and recepticals|false
+Hose Bib|Replace backyard hose bib|true
+Carpets|Replace all the carpet in each room|false
+Ceiling Fan|Replace the ceiling fan in enterance with a chandelier|false
+Sliding Glass Door|Replace the wheels on the sliding glass door and repair the tracks|true
