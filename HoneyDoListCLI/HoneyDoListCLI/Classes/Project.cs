@@ -25,12 +25,15 @@ namespace HoneyDoListCLI.Classes
             }
         }
 
+
+
         // Constructor
         public Project(string projectTitle, string projectDesc,  decimal estimatedCost)
         {
             ProjectTitle = projectTitle;
             ProjectDesc = projectDesc;
             EstimatedCost = estimatedCost;
+
         }
 
         //Methods

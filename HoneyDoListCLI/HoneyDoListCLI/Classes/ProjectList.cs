@@ -8,6 +8,14 @@ namespace HoneyDoListCLI.Classes
     {
         public List<Project> ListOfProjects { get; private set; } = new List<Project>();
 
+        public int NumOfProjects
+        {
+            get
+            {
+                return ListOfProjects.Count;
+            }
+        }
+
         public void AddProjectToList(Project projectToAdd)
         {
             ListOfProjects.Add(projectToAdd);
@@ -15,19 +23,20 @@ namespace HoneyDoListCLI.Classes
 
         public void DisplayAllProjects()
         {
-            
-            foreach(var project in ListOfProjects)
-            {
-                Console.WriteLine($"Project Title: {project.ProjectTitle}");
-                Console.WriteLine($"Project Description: {project.ProjectDesc}");
-                Console.WriteLine($"Estimated Cost: {project.EstimatedCost.ToString("C")}");
-                Console.WriteLine($"Project Finished: {project.IsFinished}");
 
-                if (project.IsFinished)
+            for (int i = 0; i < ListOfProjects.Count; i++)
+            {
+                Console.WriteLine($"Project ID: {i + 1}");
+                Console.WriteLine($"Project Title: {ListOfProjects[i].ProjectTitle}");
+                Console.WriteLine($"Project Description: {ListOfProjects[i].ProjectDesc}");
+                Console.WriteLine($"Estimated Cost: {ListOfProjects[i].EstimatedCost.ToString("C")}");
+                Console.WriteLine($"Project Finished: {ListOfProjects[i].IsFinished}");
+
+                if (ListOfProjects[i].IsFinished)
                 {
                     Console.WriteLine();
-                    Console.WriteLine($"Actual Cost: {project.ActualCost}");
-                    Console.WriteLine($"Difference Between Actual and Estimated: {project.DifferenceOfEstimateAndActual}");
+                    Console.WriteLine($"Actual Cost: {ListOfProjects[i].ActualCost}");
+                    Console.WriteLine($"Difference Between Actual and Estimated: {ListOfProjects[i].DifferenceOfEstimateAndActual}");
                 }
                 else
                 {
@@ -37,38 +46,41 @@ namespace HoneyDoListCLI.Classes
                 }
                 Console.WriteLine("-------------------------------------------");
                 Console.WriteLine();
-            }  
+            }
         }
 
         public void DisplayFinishedProjects()
         {
-            foreach(var project in ListOfProjects)
+            for (int i = 0; i < ListOfProjects.Count; i++)
             {
-                if (project.IsFinished)
+                if (ListOfProjects[i].IsFinished)
                 {
-                    Console.WriteLine($"Project Title: {project.ProjectTitle}");
-                    Console.WriteLine($"Project Description: {project.ProjectDesc}");
-                    Console.WriteLine($"Estimated Cost: {project.EstimatedCost.ToString("C")}");
-                    Console.WriteLine($"Project Finsihed: {project.IsFinished}");
+                    Console.WriteLine($"Project ID: {i + 1}");
+                    Console.WriteLine($"Project Title: {ListOfProjects[i].ProjectTitle}");
+                    Console.WriteLine($"Project Description: {ListOfProjects[i].ProjectDesc}");
+                    Console.WriteLine($"Estimated Cost: {ListOfProjects[i].EstimatedCost.ToString("C")}");
+                    Console.WriteLine($"Project Finsihed: {ListOfProjects[i].IsFinished}");
                     Console.WriteLine();
-                    Console.WriteLine($"Actual Cost: {project.ActualCost.ToString("C")}");
-                    Console.WriteLine($"Difference Between Actual and Estimated: {project.DifferenceOfEstimateAndActual.ToString("C")}");
+                    Console.WriteLine($"Actual Cost: {ListOfProjects[i].ActualCost.ToString("C")}");
+                    Console.WriteLine($"Difference Between Actual and Estimated: {ListOfProjects[i].DifferenceOfEstimateAndActual.ToString("C")}");
                     Console.WriteLine("-------------------------------------------");
                     Console.WriteLine();
                 }
             }
+
         }
 
         public void DisplayUnfinishedProjects()
         {
-            foreach (var project in ListOfProjects)
+            for (int i = 0; i < ListOfProjects.Count; i++)
             {
-                if (!project.IsFinished)
+                if (!ListOfProjects[i].IsFinished)
                 {
-                    Console.WriteLine($"Project Title: {project.ProjectTitle}");
-                    Console.WriteLine($"Project Description: {project.ProjectDesc}");
-                    Console.WriteLine($"Estimated Cost: {project.EstimatedCost.ToString("C")}");
-                    Console.WriteLine($"Project Finsihed: {project.IsFinished}");
+                    Console.WriteLine($"Project ID: {i + 1}");
+                    Console.WriteLine($"Project Title: {ListOfProjects[i].ProjectTitle}");
+                    Console.WriteLine($"Project Description: {ListOfProjects[i].ProjectDesc}");
+                    Console.WriteLine($"Estimated Cost: {ListOfProjects[i].EstimatedCost.ToString("C")}");
+                    Console.WriteLine($"Project Finsihed: {ListOfProjects[i].IsFinished}");
                     Console.WriteLine("-------------------------------------------");
                     Console.WriteLine();
                 }
