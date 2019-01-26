@@ -42,6 +42,5 @@ namespace HoneyDoListCLI.Classes
             IsFinished = true;
             ActualCost = actualCost;
         }
-        
     }
 }

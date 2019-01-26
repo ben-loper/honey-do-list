@@ -6,7 +6,7 @@ namespace HoneyDoListCLI.Classes
 {
     class ProjectList
     {
-        public List<Project> ListOfProjects { get; private set; } = new List<Project>();
+        public List<Project> ListOfProjects { get; } = new List<Project>();
 
         public int NumOfProjects
         {
@@ -36,7 +36,7 @@ namespace HoneyDoListCLI.Classes
                 {
                     Console.WriteLine();
                     Console.WriteLine($"Actual Cost: {ListOfProjects[i].ActualCost}");
-                    Console.WriteLine($"Difference Between Actual and Estimated: {ListOfProjects[i].DifferenceOfEstimateAndActual}");
+                    Console.WriteLine($"Difference Between Actual and Estimated: {ListOfProjects[i].DifferenceOfEstimateAndActual.ToString("C")}");
                 }
                 else
                 {
@@ -87,5 +87,34 @@ namespace HoneyDoListCLI.Classes
             }
         }
 
+        public void DisplayProjectTitlesOnly(bool isFinished)
+        {
+            for (int i = 0; i < ListOfProjects.Count; i++)
+            {
+                if (ListOfProjects[i].IsFinished == isFinished)
+                {
+                    Console.WriteLine($"Project ID: {i + 1}");
+                    Console.WriteLine($"Project Title: {ListOfProjects[i].ProjectTitle}");
+                    Console.WriteLine("-------------------------------------------");
+                    Console.WriteLine();
+                }
+            }
+        }
+        public void DisplayProjectTitlesOnly()
+        {
+            for (int i = 0; i < ListOfProjects.Count; i++)
+            {
+                Console.WriteLine($"Project ID: {i + 1}");
+                Console.WriteLine($"Project Title: {ListOfProjects[i].ProjectTitle}");
+                Console.WriteLine("-------------------------------------------");
+                Console.WriteLine();
+            }
+        }
+
+        public void RemoveProjectFromList(int projectIndex)
+        {
+            ListOfProjects.RemoveAt(projectIndex);
+
+        }
     }
 }

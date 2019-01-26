@@ -25,10 +25,6 @@ namespace HoneyDoListCLI
             projectList.AddProjectToList(ceilingFan);
             projectList.AddProjectToList(slidingGlassDoor);
 
-
-            hoseBib.FinishProject(15.55m);
-            electrical.FinishProject(49.99m);
-
             while (isRunning)
             {  
 
@@ -38,6 +34,8 @@ namespace HoneyDoListCLI
                 Console.WriteLine("B - Display finished projects");
                 Console.WriteLine("C - Display unfinished projects");
                 Console.WriteLine("D - Create a new project");
+                Console.WriteLine("F - Finish a project");
+                Console.WriteLine("G - Delete a project");
                 Console.WriteLine("Q - Quit");
                 Console.WriteLine();
                 Console.Write("Please enter a letter for the corresponding screen and press enter: ");
@@ -98,6 +96,77 @@ namespace HoneyDoListCLI
                     Console.Write("Press any key to return to the main menu...");
                     Console.ReadKey();
                     
+                }
+                else if(userChoice.ToLower() == "f")
+                {
+                    NewScreen();
+                    int selectedProject;
+                    int indexValue;
+
+                    projectList.DisplayProjectTitlesOnly(false);
+
+                    Console.Write("Please enter the project ID for the project to finish: ");
+                    selectedProject = int.Parse(Console.ReadLine());
+                    indexValue = selectedProject - 1;
+
+                    if(selectedProject > projectList.NumOfProjects + 1 ^ selectedProject < 0)
+                    {
+                        NewScreen();
+                        Console.WriteLine("Project does not exist in the list!");
+                        Console.Write("Press any key to return back to the main menu...");
+                        Console.ReadKey();
+                    }
+                    else
+                    {
+                        string projectTitle = projectList.ListOfProjects[indexValue].ProjectTitle;
+
+                        NewScreen();
+
+                        Console.Write("Please enter how much it cost to complete the project: ");
+                        decimal actualCost = decimal.Parse(Console.ReadLine());
+
+                        NewScreen();
+
+                        projectList.ListOfProjects[indexValue].FinishProject(actualCost);
+
+                        Console.WriteLine($"Project titled '{projectTitle}' has been updated to finished");
+                        Console.Write("Press any key to return to the main menu...");
+                        Console.ReadKey();
+                    }
+
+
+                }
+                else if (userChoice.ToLower() == "g")
+                {
+                    NewScreen();
+                    int selectedProject;
+                    int indexValue;
+
+                    projectList.DisplayProjectTitlesOnly();
+
+                    Console.Write("Please enter the project ID for the project you wish to delete: ");
+                    selectedProject = int.Parse(Console.ReadLine());
+                    indexValue = selectedProject - 1;
+
+                    if (selectedProject > projectList.NumOfProjects + 1 ^ selectedProject < 0)
+                    {
+                        NewScreen();
+                        Console.WriteLine("Project does not exist in the list!");
+                        Console.Write("Press any key to return back to the main menu...");
+                        Console.ReadKey();
+                    }
+                    else
+                    {
+                        string projectTitle = projectList.ListOfProjects[indexValue].ProjectTitle;
+
+                        NewScreen();
+
+                        projectList.RemoveProjectFromList(indexValue);
+
+                        Console.WriteLine($"Project titled '{projectTitle}' has been removed");
+                        Console.Write("Press any key to return to the main menu...");
+                        Console.ReadKey();
+                    }
                 }
                 else if(userChoice.ToLower() == "q")
                 {
