@@ -4,21 +4,26 @@ using System.Text;
 
 namespace HoneyDoListCLI.Classes
 {
-    class ProjectList
+    public class ProjectList
     {
-        public List<Project> ListOfProjects { get; } = new List<Project>();
 
-        public int NumOfProjects
+        public List<Project> ListOfProjects { get; set; } = new List<Project>();
+
+        private static int _numOfUnfinishedProjects = 0;
+        private static int _numOfFinishedProjects = 0;
+        public static int TotalNumOfProjects
         {
             get
             {
-                return ListOfProjects.Count;
+                return _numOfUnfinishedProjects + _numOfFinishedProjects;
             }
         }
+
 
         public void AddProjectToList(Project projectToAdd)
         {
             ListOfProjects.Add(projectToAdd);
+            _numOfUnfinishedProjects++;
         }
 
         public void DisplayAllProjects()
@@ -47,6 +52,8 @@ namespace HoneyDoListCLI.Classes
                 Console.WriteLine("-------------------------------------------");
                 Console.WriteLine();
             }
+            Console.WriteLine($"Number of projects: {TotalNumOfProjects}");
+            Console.WriteLine();
         }
 
         public void DisplayFinishedProjects()
@@ -65,8 +72,10 @@ namespace HoneyDoListCLI.Classes
                     Console.WriteLine($"Difference Between Actual and Estimated: {ListOfProjects[i].DifferenceOfEstimateAndActual.ToString("C")}");
                     Console.WriteLine("-------------------------------------------");
                     Console.WriteLine();
-                }
+                }  
             }
+            Console.WriteLine($"Number of finished projects: {_numOfFinishedProjects}");
+            Console.WriteLine();
 
         }
 
@@ -80,21 +89,30 @@ namespace HoneyDoListCLI.Classes
                     Console.WriteLine($"Project Title: {ListOfProjects[i].ProjectTitle}");
                     Console.WriteLine($"Project Description: {ListOfProjects[i].ProjectDesc}");
                     Console.WriteLine($"Estimated Cost: {ListOfProjects[i].EstimatedCost.ToString("C")}");
-                    Console.WriteLine($"Project Finsihed: {ListOfProjects[i].IsFinished}");
+                    Console.WriteLine($"Project Status: {ListOfProjects[i].IsFinished}");
                     Console.WriteLine("-------------------------------------------");
                     Console.WriteLine();
-                }
+                }  
             }
+            Console.WriteLine($"Number of unfinished projects: {_numOfUnfinishedProjects}");
+            Console.WriteLine();
         }
 
         public void DisplayProjectTitlesOnly(bool isFinished)
         {
+            string projectStatus = "Unfinished";
+            if (isFinished)
+            {
+                projectStatus = "Finished";
+            }
+            
             for (int i = 0; i < ListOfProjects.Count; i++)
             {
                 if (ListOfProjects[i].IsFinished == isFinished)
                 {
                     Console.WriteLine($"Project ID: {i + 1}");
                     Console.WriteLine($"Project Title: {ListOfProjects[i].ProjectTitle}");
+                    Console.WriteLine($"Project Status: {projectStatus}");
                     Console.WriteLine("-------------------------------------------");
                     Console.WriteLine();
                 }
@@ -113,8 +131,31 @@ namespace HoneyDoListCLI.Classes
 
         public void RemoveProjectFromList(int projectIndex)
         {
+            if (ListOfProjects[projectIndex].IsFinished)
+            {
+                _numOfFinishedProjects--;
+            }
+            else
+            {
+                _numOfUnfinishedProjects--;
+            }
+
             ListOfProjects.RemoveAt(projectIndex);
 
         }
+
+        public static void FinishProject()
+        {
+            _numOfFinishedProjects++;
+            _numOfUnfinishedProjects--;
+        }
+        
+        public Project GetProject(int projectIndex)
+        {
+            Project project = ListOfProjects[projectIndex];
+
+            return project;
+        }
+        
     }
 }
